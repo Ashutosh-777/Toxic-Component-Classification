@@ -6,7 +6,8 @@
 - Model Fitting 
 - Results
 
-![image](https://github.com/user-attachments/assets/74f6d261-d48d-48c6-840b-6b6c44b59ee0)
+![367521329-74f6d261-d48d-48c6-840b-6b6c44b59ee0](https://github.com/user-attachments/assets/ca01b6c6-f57d-4de7-ba7a-5db71903713b)
+
 
 ### Dataset Overview
 The threat of abuse and harassment online prevent many people from expressing themselves and make them give up on seeking different opinions. In the meantime, platforms struggle to effectively facilitate conversations, leading many communities to limit or completely shut down user comments. Therefore, Kaggle started this competition with the Conversation AI team, a research initiative founded by Jigsaw and Google.
