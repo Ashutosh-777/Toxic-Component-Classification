@@ -6,7 +6,7 @@
 - Model Fitting 
 - Results
 
-![alt text](https://github.com/dunnus/Toxic-Comments-Classification/blob/main/image/Power-In-Positivity.jpg)
+![image](https://github.com/user-attachments/assets/74f6d261-d48d-48c6-840b-6b6c44b59ee0)
 
 ### Dataset Overview
 The threat of abuse and harassment online prevent many people from expressing themselves and make them give up on seeking different opinions. In the meantime, platforms struggle to effectively facilitate conversations, leading many communities to limit or completely shut down user comments. Therefore, Kaggle started this competition with the Conversation AI team, a research initiative founded by Jigsaw and Google.
@@ -27,7 +27,8 @@ There are 159,571 observations in the training dataset and 153,164 observations 
 
 Since all of our data are text comments, we wrote our own `tokenize()` function, removing punctuations and special characters, stemming and/or lemmatizing the comments, and filtering out comments with length below 3. After benchmarking between different vectorizers (TFIDFVectorizer and CountVectorizer), we chose TFIDFVectorizer, which provides us with better performance.
 
-![alt text](https://user-images.githubusercontent.com/40482785/49547039-90079900-f896-11e8-8e99-f83e327757ac.png) ![alt text](https://github.com/dunnus/Toxic-Comments-Classification/blob/main/image/label_frequency.png)
+![image](https://github.com/user-attachments/assets/ec9c7584-2004-4fbf-b581-593977e205eb)
+
 
 The major concern of the data is that most of the comments are clean (i.e., non-toxic). There are only a few observations in the training data for Labels like `threat`. This indicates that we need to deal with imbalanced classes later on and indeed, we use different methods, such as resampling, choosing appropriate evaluation metrics, and choosing robust models to address this problem.
 
@@ -47,14 +48,16 @@ Using Multinomial Naive Bayes as our baseline model, we first used k-fold cross 
 
 After checking how these models perform on the test data, we notice that Muninomial Naive Bayes does not perform as well as the other two models while Linear SVC in general out performs the others based on F1 score. 
 
-![alt text](https://github.com/dunnus/Toxic-Comments-Classification/blob/main/image/model_comp1.png) 
+![image](https://github.com/user-attachments/assets/71ca9e05-972d-4aa5-a819-d54eb7f5d27e)
+
 
 Overall, without any hyperparameter tuning, LinearSVC performs the best initially.
 
 #### Pipeline with Manual Hyperparameter Tuning
 After accounting for the imbalanced data, the F1 score of Logistic Regression model has jumped to an average of 0.9479 while Linear SVC has jumped to 0.9515.
 
-![alt text](https://github.com/dunnus/Toxic-Comments-Classification/blob/main/image/Pipeline_comp.png) 
+![image](https://github.com/user-attachments/assets/c3c4eeed-5c10-4fe9-b15a-86a278105d45)
+
 
 #### Grid Search
 
@@ -64,17 +67,17 @@ With the help of grid search, we were able to find the "optimal" hyperparameters
 #### Ensembling
 To ensemble different models, we firstly tried a few models based on tree boosting, then used a voting classfier to ensemble one of the boosting model with the basic models in previous parts. We get a F1 score of 0.973566 and Hamming Loss of 0.024639 using Ensembling.
 
-![alt text](https://github.com/dunnus/Toxic-Comments-Classification/blob/main/image/hyperparameter_comp.png) 
-![alt text](https://github.com/dunnus/Toxic-Comments-Classification/blob/main/image/ensemble_comp.png) 
+![image](https://github.com/user-attachments/assets/7cd2e43c-7698-4427-98de-5696a213d657) 
+![image](https://github.com/user-attachments/assets/12aa9b84-3de9-4969-bfaf-0e7691ac5c4b)
 
 
 ### Results
-![alt text](https://github.com/dunnus/Toxic-Comments-Classification/blob/main/image/Optimal_model.png)
-
+![image](https://github.com/user-attachments/assets/c7c59f13-2bab-4baf-b3d6-3c5c9b54218c)
 In terms of evaluation metric, Linear SVC performs the best. But we believe after tuning hyperparameters for ensembling, we will get better results. Besides, Linear SVC trains model the fastest. Refering to interpretability, Linear SVC is also easier for the users to understand and has a simpler internal processing.
 Therefore, we choose Linear SVC as our optimal model.
 
 ### Top and Bottom Features
-![alt text](https://github.com/dunnus/Toxic-Comments-Classification/blob/main/image/topbottomwords.png)
+![image](https://github.com/user-attachments/assets/27ef7f1a-4030-4d9c-ad1e-d986224b0d96)
+
 
 
